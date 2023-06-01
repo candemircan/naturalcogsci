@@ -17,10 +17,19 @@ import pandas as pd
 import torch
 import fasttext
 from transformers import AutoTokenizer, AutoModel
-from thingsvision import get_extractor
+from thingsvision import get_extractor, get_extractor_from_model
 from thingsvision.utils.data import ImageDataset, DataLoader
 import tensorflow_hub as hub
 import openai
+from harmonization.models import (
+    load_ViT_B16,
+    load_ResNet50,
+    load_VGG16,
+    load_EfficientNetB0,
+    load_tiny_ConvNeXT,
+    load_tiny_MaxViT,
+    load_LeViT_small,
+)
 
 
 from .helpers import get_project_root
@@ -141,29 +150,42 @@ def get_visual_embedding(
     Extract visual embedding using `thingsvision`
     """
 
+    harmonization_variants = {
+        "ViT_B16": load_ViT_B16,
+        "ResNet50": load_ResNet50,
+        "VGG16": load_VGG16,
+        "EfficientNetB0": load_EfficientNetB0,
+        "tiny_ConvNeXT": load_tiny_ConvNeXT,
+        "tiny_MaxViT": load_tiny_MaxViT,
+        "LeViT_small": load_LeViT_small,
+    }
+
     with open(join(project_root, "data", "model_configs.json")) as f:
         file = json.load(f)
     model_config = file[feature_name]
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model_parameters = None
     save_name = feature_name
-    if feature_name.startswith("clip"):
-        model_parameters = {"variant": feature_name.split("clip_")[1]}
-        save_name = feature_name
-        feature_name = "clip"
-    elif feature_name.startswith("Harmonization"):
-        model_parameters = {"variant": feature_name.split("Harmonization_")[1]}
-        save_name = feature_name
-        feature_name = "Harmonization"
+    if feature_name.startswith("Harmonization"):
+        extractor = get_extractor_from_model(
+            model=harmonization_variants[feature_name.split("Harmonization_")[-1]](),
+            device=device,
+            backend="tf",
+        )
+    else:
+        if feature_name.startswith("clip"):
+            model_parameters = {"variant": feature_name.split("clip_")[1]}
+            save_name = feature_name
+            feature_name = "clip"
 
-    save_name = save_name.replace("/", "_")
-    extractor = get_extractor(
-        model_name=feature_name,
-        source=model_config["source"],
-        device=device,
-        pretrained=True,
-        model_parameters=model_parameters,
-    )
+        save_name = save_name.replace("/", "_")
+        extractor = get_extractor(
+            model_name=feature_name,
+            source=model_config["source"],
+            device=device,
+            pretrained=True,
+            model_parameters=model_parameters,
+        )
 
     stimuli_path = join(project_root, "stimuli")
     batch_size = 1

@@ -1,4 +1,0 @@
--i https://download.pytorch.org/whl/cu113
-torch==1.13.0+cu113
--i https://download.pytorch.org/whl/cu113
-torch==1.13.0+cu113

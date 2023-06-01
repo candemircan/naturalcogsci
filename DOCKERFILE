@@ -43,11 +43,19 @@ RUN R -e "devtools::install_version('broom.mixed', version = '0.2.9.4', dependen
 # install python packages
 RUN pip3 install git+https://github.com/candemircan/NaturalCogSci.git
 
-COPY ./requirements-torch.txt ./requirements-torch.txt
-RUN  python3 -m pip install  -r ./requirements-torch.txt
 
-COPY ./requirements.txt ./requirements.txt
-RUN  python3 -m pip install  -r ./requirements.txt
+RUN pip3 install tensorflow==2.9.1 tensorflow-hub==0.13.0
+
+RUN pip3 install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
+
+RUN pip3 install fasttext==0.9.2 \
+    jupyterlab==3.6.1 \
+    openai==0.27.2 \
+    seaborn==0.12.2 \
+    thingsvision==2.2.0 \
+    transformers==4.26.1 \
+    git+https://github.com/openai/CLIP.git \
+    git+https://github.com/serre-lab/Harmonization.git 
 
 # define environment variables
 RUN echo "EXPORT NATURALCOGSCI_ROOT=/home/NaturalCogSci" >> ~/.bashrc

@@ -156,3 +156,7 @@ THINGS/*
 !THINGS/.gitkeep
 temp/*
 !temp/.gitkeep
+
+data/*
+!data/.gitkeep
+!data/README.md
