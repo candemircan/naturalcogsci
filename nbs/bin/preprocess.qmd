@@ -1,12 +1,12 @@
 ---
-title: Preprocess Data
+title: Data Preprocessing Script
 filters:
    - include-code-files
 ---
 
 Here, I call functions  from `NaturalCogSci.helpers` to assemble jsons into anonymised csv files.
 
-Since I don't share the json files this is not relevant for anyone but me really.
+Since I don't share the original json and csv files this is not relevant for anyone but me really.
 
 
 
