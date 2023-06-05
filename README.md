@@ -64,13 +64,16 @@ For the versions of R dependencies, you can see the `DOCKERFILE`
 
 ## Environment Variables
 
-The code uses the environment variable `NATURALCOGSCI_ROOT` to determine the root directory of the project. You can set this variable in your `.bashrc` file (or whatever your shell rc file might be) as follows:
+The code uses the environment variable `NATURALCOGSCI_ROOT` to determine
+the root directory of the project. You can set this variable in your
+`.bashrc` file (or whatever your shell rc file might be) as follows:
 
-```bash
+``` bash
 export NATURALCOGSCI_ROOT=/path/to/NaturalCogSci
 ```
 
-For me, R could not read this variable from the shell, so I had to set it in the `~/.Renviron` file as well.
+For me, R could not read this variable from the shell, so I had to set
+it in the `~/.Renviron` file as well
 
 ## Experiments
 
@@ -79,6 +82,10 @@ Both experiments are shared under the `experiments` folder. See the
 
 ## Data
 
-The data is shared in an OSF repository. It should be put under the `data` folder, if you want to use the code as is. All the behavioural (anaonymised) and modelling data can be found in the OSF repo. Further detail about the data are found under the `README.md` file in the `data` folder.	
+The data is shared in an OSF repository. It should be put under the
+`data` folder, if you want to use the code as is. All the behavioural
+(anaonymised) and modelling data can be found in the OSF repo. Further
+detail about the data are found under the `README.md` file in the `data`
+folder.
 
-The OSF repository is here: https://osf.io/h3t52/
+The OSF repository is here: <https://osf.io/h3t52/>
