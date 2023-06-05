@@ -4,4 +4,4 @@ If you want to extract the features yourself, you need to download the THINGS da
 
 This can be done from the following link: 
 
-https://things-initiative.org/uploads/THINGS/images.zip
+<https://things-initiative.org/uploads/THINGS/images.zip>

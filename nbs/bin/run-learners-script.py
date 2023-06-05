@@ -128,17 +128,6 @@ if __name__ == "__main__":
 
         model_dfs.append(model_df)
 
-        np.savetxt(
-            join(
-                project_root,
-                "data",
-                "learner_weights",
-                experiment,
-                f"{features}_{regularisation}_{transform}_{participant}.txt",
-            ),
-            learner.weights[-1,:],
-        )
-
     large_model_df = pd.concat(model_dfs)
     large_model_df.to_csv(
         save_file_name,
