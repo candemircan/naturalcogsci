@@ -28,6 +28,13 @@
     "text": "Experiments\nBoth experiments are shared under the experiments folder. See the README.md files in the respective folders for more information."
   },
   {
+    "objectID": "index.html#stimuli",
+    "href": "index.html#stimuli",
+    "title": "Read Me!",
+    "section": "Stimuli",
+    "text": "Stimuli\nIf you want to extract the features from the images , you need to download the THINGS database under the stimuli folder.\nThis can be done from the following link:\nhttps://things-initiative.org/uploads/THINGS/images.zip"
+  },
+  {
     "objectID": "index.html#data",
     "href": "index.html#data",
     "title": "Read Me!",

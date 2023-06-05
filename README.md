@@ -80,6 +80,15 @@ it in the `~/.Renviron` file as well
 Both experiments are shared under the `experiments` folder. See the
 `README.md` files in the respective folders for more information.
 
+## Stimuli
+
+If you want to extract the features from the images , you need to
+download the THINGS database under the `stimuli` folder.
+
+This can be done from the following link:
+
+<https://things-initiative.org/uploads/THINGS/images.zip>
+
 ## Data
 
 The data is shared in an OSF repository. It should be put under the
