@@ -73,7 +73,11 @@ export NATURALCOGSCI_ROOT=/path/to/NaturalCogSci
 ```
 
 For me, R could not read this variable from the shell, so I had to set
-it in the `~/.Renviron` file as well
+it in the `~/.Renviron` file as well as follows:
+
+``` bash
+NATURALCOGSCI_ROOT=/path/to/NaturalCogSci
+```
 
 ## Experiments
 

@@ -18,7 +18,7 @@
     "href": "index.html#environment-variables",
     "title": "Read Me!",
     "section": "Environment Variables",
-    "text": "Environment Variables\nThe code uses the environment variable NATURALCOGSCI_ROOT to determine the root directory of the project. You can set this variable in your .bashrc file (or whatever your shell rc file might be) as follows:\nexport NATURALCOGSCI_ROOT=/path/to/NaturalCogSci\nFor me, R could not read this variable from the shell, so I had to set it in the ~/.Renviron file as well"
+    "text": "Environment Variables\nThe code uses the environment variable NATURALCOGSCI_ROOT to determine the root directory of the project. You can set this variable in your .bashrc file (or whatever your shell rc file might be) as follows:\nexport NATURALCOGSCI_ROOT=/path/to/NaturalCogSci\nFor me, R could not read this variable from the shell, so I had to set it in the ~/.Renviron file as well as follows:\nNATURALCOGSCI_ROOT=/path/to/NaturalCogSci"
   },
   {
     "objectID": "index.html#experiments",

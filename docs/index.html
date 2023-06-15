@@ -321,7 +321,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="environment-variables">Environment Variables</h2>
 <p>The code uses the environment variable <code>NATURALCOGSCI_ROOT</code> to determine the root directory of the project. You can set this variable in your <code>.bashrc</code> file (or whatever your shell rc file might be) as follows:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NATURALCOGSCI_ROOT</span><span class="op">=</span>/path/to/NaturalCogSci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For me, R could not read this variable from the shell, so I had to set it in the <code>~/.Renviron</code> file as well</p>
+<p>For me, R could not read this variable from the shell, so I had to set it in the <code>~/.Renviron</code> file as well as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">NATURALCOGSCI_ROOT</span><span class="op">=</span>/path/to/NaturalCogSci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="experiments" class="level2">
 <h2 class="anchored" data-anchor-id="experiments">Experiments</h2>
