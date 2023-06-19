@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
         <div class="quarto-navbar-tools ms-auto tools-wide">
-    <a href="https://github.com/candemircan/NaturalCogSci" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-book"></i></a>
+    <a href="https://arxiv.org/abs/2306.09377" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-book"></i></a>
     <a href="https://osf.io/h3t52/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-database"></i></a>
     <a href="https://github.com/candemircan/NaturalCogSci" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>Using the predictions of the learning models, perform a loo-cv, where each trial serves once as the only observation in the test set.</p>
-<p>Below are three scripts. The bash script calls the slurm file (this is for parallelisation on the cluster). The slurm file calls the Python script.</p>
+<p>Below are three scripts. The bash script calls the slurm file (this is for parallelisation on the cluster). The slurm file calls the R script.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">embeddings</span><span class="op">=</span><span class="va">$(</span><span class="ex">jq</span> <span class="at">-c</span> <span class="at">-r</span> <span class="st">'keys_unsorted[]'</span> <span class="st">"</span><span class="va">$NATURALCOGSCI_ROOT</span><span class="st">"</span>/data/model_configs.json<span class="va">)</span></span>

@@ -9,7 +9,7 @@ Using the predictions of the learning models, perform a loo-cv, where each trial
 
 Below are three scripts.
 The bash script calls the slurm file (this is for parallelisation on the cluster).
-The slurm file calls the Python script.
+The slurm file calls the R script.
 
 ```{.bash include="../bin/loo_cv.sh"}
 ```

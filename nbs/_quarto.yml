@@ -28,7 +28,7 @@ website:
     search: true
     tools:
       - icon : book
-        href : "https://github.com/candemircan/NaturalCogSci"
+        href : "https://arxiv.org/abs/2306.09377"
       - icon : database
         href : "https://osf.io/h3t52/"
       - icon : github
