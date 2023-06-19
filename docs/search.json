@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Read Me!",
     "section": "",
-    "text": "Code for the project “Language Aligned Visual Representations Predict Human Behavior in Naturalistic Learning Tasks”"
+    "text": "Code for the project “Language Aligned Visual Representations Predict Human Behavior in Naturalistic Learning Tasks”\nPlease see the paper for the associated work."
   },
   {
     "objectID": "index.html#setup",
@@ -40,6 +40,13 @@
     "title": "Read Me!",
     "section": "Data",
     "text": "Data\nThe data is shared in an OSF repository. It should be put under the data folder, if you want to use the code as is. All the behavioural (anaonymised) and modelling data can be found in the OSF repo. Further detail about the data are found under the README.md file in the data folder.\nThe OSF repository is here: https://osf.io/h3t52/"
+  },
+  {
+    "objectID": "index.html#citation",
+    "href": "index.html#citation",
+    "title": "Read Me!",
+    "section": "Citation",
+    "text": "Citation\nIf you use our work, please cite our paper as such:\n@misc{demircan2023language,\n      title={Language Aligned Visual Representations Predict Human Behavior in Naturalistic Learning Tasks}, \n      author={Can Demircan and Tankred Saanum and Leonardo Pettini and Marcel Binz and Blazej M Baczkowski and Paula Kaanders and Christian F Doeller and Mona M Garvert and Eric Schulz},\n      year={2023},\n      eprint={2306.09377},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG}\n}"
   },
   {
     "objectID": "feature_extractors.html",

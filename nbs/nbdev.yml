@@ -4,6 +4,6 @@ project:
 website:
   title: "Language Aligned Visual Representations Predict Human Behavior in Naturalistic Learning Tasks"
   site-url: "https://candemircan.github.io/NaturalCogSci"
-  description: "Code for the NaturalCogSci project"
+  description: "Code for the project Language Aligned Visual Representations Predict Human Behavior in Naturalistic Learning Tasks"
   repo-branch: main
   repo-url: "https://github.com/candemircan/NaturalCogSci"
