@@ -12,28 +12,31 @@ module load singularity
 
 while getopts ":e:f:t:r:" opt; do
   case $opt in
-    e) experiment="$OPTARG"
+  e)
+    experiment="$OPTARG"
     ;;
-    f) feature="$OPTARG"
+  f)
+    feature="$OPTARG"
     ;;
-    t) transform="$OPTARG"
+  t)
+    transform="$OPTARG"
     ;;
-    r) regularisation="$OPTARG"
+  r)
+    regularisation="$OPTARG"
     ;;
-    \?) echo "Invalid option -$OPTARG" >&2
+  \?)
+    echo "Invalid option -$OPTARG" >&2
     exit 1
     ;;
   esac
 done
 
-
-
 singularity exec "$NATURALCOGSCI_ROOT"/NaturalCogSci.sif \
-    python3 "$NATURALCOGSCI_ROOT"/src/Py/run-learners-script.py \
-    --experiment "$experiment" \
-    --features "$feature" \
-    --transform "$transform" \
-    --regularisation "$regularisation"
+  python3 "$NATURALCOGSCI_ROOT"/nbs/bin/run-learners-script.py \
+  --experiment "$experiment" \
+  --features "$feature" \
+  --transform "$transform" \
+  --regularisation "$regularisation"
 
 # Finish the script
 exit 0

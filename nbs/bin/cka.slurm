@@ -12,20 +12,22 @@ module load singularity
 
 while getopts ":f:t:" opt; do
   case $opt in
-    f) features="$OPTARG"
+  f)
+    features="$OPTARG"
     ;;
-    t) target="$OPTARG"
+  t)
+    target="$OPTARG"
     ;;
-    \?) echo "Invalid option -$OPTARG" >&2
+  \?)
+    echo "Invalid option -$OPTARG" >&2
     exit 1
     ;;
   esac
 done
 
-
 singularity exec "$NATURALCOGSCI_ROOT"/NaturalCogSci.sif \
-    python3 "$NATURALCOGSCI_ROOT"/src/Py/cka-script.py \
-    -f "$features" -t "$target"
+  python3 "$NATURALCOGSCI_ROOT"/nbs/bin/cka-script.py \
+  -f "$features" -t "$target"
 
 # Finish the script
 exit 0

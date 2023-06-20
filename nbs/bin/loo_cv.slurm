@@ -11,23 +11,28 @@ module load singularity
 
 while getopts ":e:f:t:r:" opt; do
   case $opt in
-    e) experiment="$OPTARG"
+  e)
+    experiment="$OPTARG"
     ;;
-    f) features="$OPTARG"
+  f)
+    features="$OPTARG"
     ;;
-    t) transform="$OPTARG"
+  t)
+    transform="$OPTARG"
     ;;
-    r) regularisation="$OPTARG"
+  r)
+    regularisation="$OPTARG"
     ;;
-    \?) echo "Invalid option -$OPTARG" >&2
+  \?)
+    echo "Invalid option -$OPTARG" >&2
     exit 1
     ;;
   esac
 done
 
 singularity exec "$NATURALCOGSCI_ROOT"/NaturalCogSci.sif \
-    Rscript "$NATURALCOGSCI_ROOT"/src/R/loo-cv-script.R \
-    "$features" "$experiment" "$regularisation" "$transform"
+  Rscript "$NATURALCOGSCI_ROOT"/nbs/bin/loo-cv-script.R \
+  "$features" "$experiment" "$regularisation" "$transform"
 
 # Finish the script
 exit 0
