@@ -177,6 +177,17 @@ def get_visual_embedding(
             model_parameters = {"variant": feature_name.split("clip_")[1]}
             save_name = feature_name
             feature_name = "clip"
+        elif feature_name.startswith("OpenCLIP"):
+            variant_name = feature_name.split("OpenCLIP_")[1].split("_laion")[0]
+            dataset_name = feature_name.split(f"{variant_name}_")[1]
+            model_parameters = {"variant": variant_name, "dataset_name": dataset_name}
+            save_name = feature_name
+            feature_name = "OpenCLIP"
+        elif feature_name.startswith("DreamSim"):
+            variant_name = feature_name.split("DreamSim_")[1]
+            model_parameters = {"variant": variant_name}
+            save_name = feature_name
+            feature_name = "DreamSim"
 
         save_name = save_name.replace("/", "_")
         extractor = get_extractor(

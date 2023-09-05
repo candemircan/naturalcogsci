@@ -79,13 +79,13 @@ def prepare_training(
     elif task == "category_learning":
         TRIALS = 120
 
-        stimuli = df.image.to_list()[:120]
+        stimuli = df.image.to_list()[:TRIALS]
 
         stimuli = [file_names.index(stimulus) for stimulus in stimuli]
 
         X = np.zeros((TRIALS, embedding.shape[1]))
         X[:] = embedding[stimuli, :]
-        y = df.true_category_binary.to_numpy()[:120]
+        y = df.true_category_binary.to_numpy()[:TRIALS]
 
     return X, y
 
