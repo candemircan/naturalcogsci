@@ -13,6 +13,16 @@ models=(
     OpenCLIP_ViT-g-14_laion2b_s12b_b42k
     Resnet50_ecoset
     Inception_ecoset
+    slip_slip_small
+    clip_slip_small
+    simclr_slip_small
+    slip_slip_base
+    clip_slip_base
+    simclr_slip_base
+    slip_slip_large
+    clip_slip_large
+    simclr_slip_large
+
 )
 
 for model in "${models[@]}"; do

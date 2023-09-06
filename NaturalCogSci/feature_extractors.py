@@ -219,9 +219,7 @@ def get_visual_embedding(
         model.to(device)
 
         extractor = get_extractor_from_model(
-            model=model,
-            device=device,
-            backend="pt",
+            model=model, device=device, backend="pt", forward_fn=model.encode_image
         )
 
     else:
