@@ -9,6 +9,7 @@ thingsvision==2.4.1
 transformers==4.26.1
 git+https://github.com/openai/CLIP.git
 git+https://github.com/serre-lab/Harmonization.git
+git+https://github.com/candemircan/SLIP.git
 -i https://download.pytorch.org/whl/cu113
 torch==1.12.1+cu113
 -i https://download.pytorch.org/whl/cu113

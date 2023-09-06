@@ -9,8 +9,8 @@ __all__ = ['extract_features', 'folder_to_word', 'get_visual_embedding', 'cleanu
 import glob
 import os
 from os.path import join
-from shutil import rmtree
 import json
+from collections import OrderedDict
 
 import numpy as np
 import pandas as pd
@@ -30,7 +30,17 @@ from harmonization.models import (
     load_tiny_MaxViT,
     load_LeViT_small,
 )
-
+from SLIP.models import (
+    SLIP_VITS16,
+    SLIP_VITB16,
+    SLIP_VITL16,
+    CLIP_VITS16,
+    CLIP_VITB16,
+    CLIP_VITL16,
+    SIMCLR_VITS16,
+    SIMCLR_VITB16,
+    SIMCLR_VITL16,
+)
 
 from .helpers import get_project_root
 
@@ -160,6 +170,18 @@ def get_visual_embedding(
         "LeViT_small": load_LeViT_small,
     }
 
+    slip_variants = {
+        "slip_slip_small": SLIP_VITS16,
+        "clip_slip_small": CLIP_VITS16,
+        "simclr_slip_small": SIMCLR_VITS16,
+        "slip_slip_base": SLIP_VITB16,
+        "clip_slip_base": CLIP_VITB16,
+        "simclr_slip_base": SIMCLR_VITB16,
+        "slip_slip_large": SLIP_VITL16,
+        "clip_slip_large": CLIP_VITL16,
+        "simclr_slip_large": SIMCLR_VITL16,
+    }
+
     with open(join(project_root, "data", "model_configs.json")) as f:
         file = json.load(f)
     model_config = file[feature_name]
@@ -172,6 +194,36 @@ def get_visual_embedding(
             device=device,
             backend="tf",
         )
+    elif "slip" in feature_name:
+        weights = torch.load(
+            join(
+                project_root,
+                "data",
+                "embedding_weights_and_binaries",
+                f"{feature_name}.pth",
+            ),
+            map_location=device,
+        )
+
+        model = slip_variants[feature_name](
+            ssl_mlp_dim=weights["args"].ssl_mlp_dim,
+            ssl_emb_dim=weights["args"].ssl_emb_dim,
+            rand_embed=False,
+        )
+
+        state_dict = OrderedDict()
+        for k, v in weights["state_dict"].items():
+            state_dict[k.replace("module.", "")] = v
+        model.load_state_dict(state_dict, strict=True)
+        model.eval()
+        model.to(device)
+
+        extractor = get_extractor_from_model(
+            model=model,
+            device=device,
+            backend="pt",
+        )
+
     else:
         if feature_name.startswith("clip"):
             model_parameters = {"variant": feature_name.split("clip_")[1]}
@@ -180,7 +232,7 @@ def get_visual_embedding(
         elif feature_name.startswith("OpenCLIP"):
             variant_name = feature_name.split("OpenCLIP_")[1].split("_laion")[0]
             dataset_name = feature_name.split(f"{variant_name}_")[1]
-            model_parameters = {"variant": variant_name, "dataset_name": dataset_name}
+            model_parameters = {"variant": variant_name, "dataset": dataset_name}
             save_name = feature_name
             feature_name = "OpenCLIP"
         elif feature_name.startswith("DreamSim"):
@@ -234,9 +286,6 @@ def cleanup_temp(
     Read features for single images from the temp folder.
 
     Combine them into one large array.
-
-    If all the features are available for all images, delete the feature folder
-    under temp, and return the large array.
     """
 
     TOTAL_IMAGES = 26107

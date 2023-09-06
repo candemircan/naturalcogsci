@@ -55,7 +55,8 @@ RUN pip3 install fasttext==0.9.2 \
     thingsvision==2.4.1 \
     transformers==4.26.1 \
     git+https://github.com/openai/CLIP.git \
-    git+https://github.com/serre-lab/Harmonization.git 
+    git+https://github.com/serre-lab/Harmonization.git \
+    git+https://github.com/candemircan/SLIP.git
 
 # define environment variables
 RUN echo "EXPORT NATURALCOGSCI_ROOT=/home/NaturalCogSci" >> ~/.bashrc
