@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This code is not for [the final version of the paper](https://openreview.net/forum?id=8i6px5W1Rf&referrer=%5Bthe%20profile%20of%20Can%20Demircan%5D(%2Fprofile%3Fid%3D~Can_Demircan1)). It will be updated after NeurIPS!
+
 # Read Me!
 
 > Code for the project “Language Aligned Visual Representations Predict
