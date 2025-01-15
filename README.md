@@ -15,6 +15,11 @@ The paper can be found [here](https://openreview.net/forum?id=8i6px5W1Rf&referre
 
 ## Setup
 
+> [!NOTE]  
+> If you want to have the data as well, you need to have git lfs installed. You can install it from [here](https://git-lfs.com/)
+> Make sure to also run the `git-lfs install` command after installing git lfs.
+
+
 You can install the Python & R dependencies as follows:
 
 ``` bash
@@ -59,15 +64,7 @@ This can be done from the following link:
 
 <https://things-initiative.org/uploads/THINGS/images.zip>
 
-## Data
 
-The data is shared in an OSF repository. It should be put under the
-`data` folder, if you want to use the code as is. All the behavioural
-(anaonymised) and modelling data can be found in the OSF repo. Further
-detail about the data are found under the `README.md` file in the `data`
-folder.
-
-The OSF repository is here: <https://osf.io/h3t52/>
 
 ## Citation
 

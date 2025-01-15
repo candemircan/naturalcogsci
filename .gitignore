@@ -2,7 +2,6 @@ _docs/
 _proc/
 
 *.bak
-.gitattributes
 .last_checked
 .gitconfig
 *.bak
@@ -157,9 +156,6 @@ THINGS/*
 temp/*
 !temp/.gitkeep
 
-data/*
-!data/.gitkeep
-!data/README.md
 
 Playground*
 # Python-generated files
