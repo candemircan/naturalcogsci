@@ -4,6 +4,8 @@ import json
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from tqdm.auto import tqdm
+from pathlib import Path
 
 from naturalcogsci.helpers import get_project_root
 
@@ -33,7 +35,7 @@ def process_embedding(embedding_path, df, file_to_index):
     embeddings = np.load(embedding_path)
     agreements = []
 
-    for _, row in df.iterrows():
+    for _, row in tqdm(df.iterrows(), total=len(df), desc=f"Processing {Path(embedding_path).stem}"):
         ref_idx = file_to_index[row["ref_path"]]
         left_idx = file_to_index[row["left_path"]]
         right_idx = file_to_index[row["right_path"]]
@@ -51,25 +53,28 @@ def process_embedding(embedding_path, df, file_to_index):
 
 def main():
     df = pd.read_csv(join(PROJECT_ROOT, "data", "nights", "data.csv"))
-    df = df[(df.votes >= 6) & (not df.is_imagenet) & (df.split == "test")].reset_index(drop=True)
+    df = df[(df.votes >= 6) & (~df.is_imagenet) & (df.split == "test")].reset_index(drop=True)
 
-    with open(f"{PROJECT_ROOT}/features/file_names.txt", "r") as f:
-        file_names = [line.strip().split(f"{PROJECT_ROOT}/data/nights/")[-1] for line in f]
+    with open(f"{PROJECT_ROOT}/data/nights_features/file_names.txt", "r") as f:
+        file_names = [line.strip().split("/lustre/groups/hcai/workspace/can.demircan/things_nights/dataset/nights/")[-1] for line in f]
+    
     file_to_index = {name: i for i, name in enumerate(file_names)}
+
 
     # Create a dictionary mapping file names to their index in the embeddings array
     file_to_index = {name: i for i, name in enumerate(file_names)}
 
     results = {}
-    features_folder = "nights_features"
-    for filename in os.listdir(features_folder):
+    features_folder = join(PROJECT_ROOT, "data", "nights_features")
+    for filename in tqdm(os.listdir(features_folder), desc="Processing models"):
         if filename.endswith(".npy"):
             embedding_path = os.path.join(features_folder, filename)
             key = os.path.splitext(filename)[0]
             agreement_rate = process_embedding(embedding_path, df, file_to_index)
             results[key] = agreement_rate
+            tqdm.write(f"{key}: {agreement_rate:.3f}")
 
-    with open(f"{PROJECT_ROOT}/data/nights.json", "w") as f:
+    with open(f"{PROJECT_ROOT}/data/nights/nights.json", "w") as f:
         json.dump(results, f, indent=4)
 
 

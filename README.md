@@ -26,6 +26,8 @@ Rscript bin/install_packages.R
 
 The code was tested on Python 3.9 and R 4.3
 
+You will also need to install `jq`, which is used to parse JSON files in the bash scripts. It can be downloaded from [here](https://jqlang.github.io/jq/download/).
+
 ## Environment Variables
 
 The code uses the environment variable `NATURALCOGSCI_ROOT` to determine

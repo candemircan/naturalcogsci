@@ -1,0 +1,23 @@
+# Figure settings
+figure.dpi: 300
+savefig.dpi: 300
+figure.figsize: 6.99866, 4.8
+
+# Font settings
+font.size: 8
+font.family: Roboto
+axes.titlesize: 8
+axes.labelsize: 8
+xtick.labelsize: 8
+ytick.labelsize: 8
+legend.fontsize: 8
+
+# Spine settings
+axes.spines.right: False
+axes.spines.top: False
+
+# Color settings
+axes.prop_cycle: cycler("color", ["#dd9e9e", "#D04C4C", "#f59e57", "#6f6484", "#101e41", "#fccc9b", "#666666"])
+
+# Other settings
+figure.autolayout: True

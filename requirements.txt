@@ -5,7 +5,8 @@ openai==0.27.2
 seaborn==0.13.2
 transformers==4.39.3
 dreamsim==0.1.2
-keras-cv-attention-models==1.3.5
-git+https://github.com/openai/CLIP.git@dcba3cb2e2827b402d2701e7e1c7d9fed8a20ef1
-git+https://github.com/serre-lab/Harmonization.git@ffe1c49dba425504a74b050cedc8382a423448f3
+keras-cv-attention-models==1.4.1
+jupyter==1.1.1
+clip @ git+https://github.com/openai/CLIP.git@dcba3cb2e2827b402d2701e7e1c7d9fed8a20ef1
+harmonization @ git+https://github.com/serre-lab/Harmonization.git@ffe1c49dba425504a74b050cedc8382a423448f3
 SLIP @ git+https://github.com/candemircan/SLIP.git@00ddaeb4f70f6d4312d26a3fe21feeca7df53bfc
