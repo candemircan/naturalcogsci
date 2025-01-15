@@ -56,7 +56,9 @@ NATURALCOGSCI_ROOT=/path/to/naturalcogsci
 ├── bin # bash, slurm, and python scripts for analyses as well as notebooks for visualisations
 ├── data
 │   ├── ID # intrinsic dimensionality of representations
+│   ├── THINGS # THINGS mental embeddings and stimulus IDs
 │   ├── cka # centered kernel alignment with ground truth
+│   ├── embedding_weights_and_binaries # weights for some external models
 │   ├── features # extracted features from images for THINGS
 │   ├── harmonization # harmonization alignment score of supervised models
 │   ├── human_behavioural
