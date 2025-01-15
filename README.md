@@ -16,7 +16,7 @@ The paper can be found [here](https://openreview.net/forum?id=8i6px5W1Rf&referre
 ## Setup
 
 > [!NOTE]  
-> If you want to have the data as well, you need to have git lfs installed. You can install it from [here](https://git-lfs.com/)
+> If you want to have the data as well, you need to have git lfs installed. You can install it from [here](https://git-lfs.com/).
 > Make sure to also run the `git-lfs install` command after installing git lfs.
 
 
@@ -50,6 +50,34 @@ it in the `~/.Renviron` file as well as follows:
 NATURALCOGSCI_ROOT=/path/to/naturalcogsci
 ```
 
+## Structure
+
+``` bash
+├── bin # bash, slurm, and python scripts for analyses as well as notebooks for visualisations
+├── data
+│   ├── ID # intrinsic dimensionality of representations
+│   ├── cka # centered kernel alignment with ground truth
+│   ├── features # extracted features from images for THINGS
+│   ├── harmonization # harmonization alignment score of supervised models
+│   ├── human_behavioural
+│   │   ├── category_learning # human behavioural data for category learning task
+│   │   └── reward_learning # human behavioural data for reward learning task
+│   ├── learner_behavioural
+│   │   ├── category_learning # model behavioural data for category learning task
+│   │   └── reward_learning # model behavioural data for reward learning task
+│   ├── nights # nights alignment score
+│   ├── nights_features # extracted features from images for nights
+│   ├── peterson # peterson alignment score
+│   ├── peterson_features # extracted features from images for peterson
+│   └── r2 # class separation of representations
+├── experiments 
+│   ├── category_learning # js, html, css code for category learning task
+│   └── reward_learning # js, html, css code for reward learning task
+├── figures 
+├── naturalcogsci # python functions
+└── stimuli # THINGS database
+```
+
 ## Experiments
 
 Both experiments are shared under the `experiments` folder. See the
@@ -63,8 +91,6 @@ download the THINGS database under the `stimuli` folder.
 This can be done from the following link:
 
 <https://things-initiative.org/uploads/THINGS/images.zip>
-
-
 
 ## Citation
 
