@@ -155,7 +155,8 @@ THINGS/*
 !THINGS/.gitkeep
 temp/*
 !temp/.gitkeep
-
+data/*
+!data/.gitkeep
 
 Playground*
 # Python-generated files
